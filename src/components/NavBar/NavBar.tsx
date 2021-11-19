@@ -1,9 +1,9 @@
 import React from "react";
-import './App.css';
+import styles from "./NavBar.module.css"
 
 export const NavBar = () => {
     return (
-        <nav className="nav">
+        <nav className={styles.nav}>
             <div>Profile</div>
             <div>Messages</div>
             <div>News</div>
