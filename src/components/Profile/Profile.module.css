@@ -1,12 +1,10 @@
 .content {
-    grid-area: content;
-    background-color: darkkhaki;
+    margin: 10px;
 }
 
 
 .profile{
     display: flex;
-    margin: 10px;
 }
 
 .profile img{
