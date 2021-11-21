@@ -1,0 +1,7 @@
+.dialogs{
+    display: flex;
+    margin: 15px;
+}
+.conversation{
+    margin-left: 100px;
+}

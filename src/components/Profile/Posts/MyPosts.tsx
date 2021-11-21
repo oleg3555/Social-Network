@@ -5,11 +5,15 @@ import {Post} from "./Post/Post";
 export const MyPosts = () => {
     return (
         <div>
-            My Posts
+            <h3>My Posts</h3>
             <div>
-                <textarea/>
-                <button>Add Post</button>
-                <button>Remove</button>
+                <div>
+                    <textarea/>
+                </div>
+                <div>
+                    <button>Add Post</button>
+                    <button>Remove</button>
+                </div>
             </div>
             <div className={styles.posts}>
                 <Post text="Smells like teen spirit" likesCount={14}/>

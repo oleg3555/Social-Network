@@ -1,0 +1,9 @@
+.item a{
+    margin: 5px;
+    color: #20242a;
+    font-weight: bold;
+    text-decoration: none;
+}
+.item a.active{
+    color: darkgoldenrod;
+}

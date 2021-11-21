@@ -1,0 +1,56 @@
+.message {
+    display: block;
+    background-color: #20242a;
+    border-radius: 10px 10px 10px 0;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.message::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 100%;
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(30px at top left, transparent 49%, #20242a 51%) no-repeat right bottom;
+}
+
+.avatar img {
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    border-radius: 20px;
+}
+
+.text {
+    margin: 0 10px;
+}
+
+.name {
+    margin-left: 10px;
+    color: #2b5b80;
+}
+
+.time {
+    opacity: 0.8;
+    padding-top: 10px;
+    margin: 2px;
+}
+
+.avatar {
+    margin: 0 5px;
+    padding-top: 20px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.data {
+    display: flex;
+    justify-content: space-around;
+    color: white;
+}
