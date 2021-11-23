@@ -1,14 +1,14 @@
 import React from 'react'
 import styles from './Message.module.css';
 
-type messagePropsType = {
+export type messageType = {
     avatar: string,
     name: string,
     message: string,
     time: string
 }
 
-export const Message = (props: messagePropsType) => {
+export const Message = (props: messageType) => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.avatar}>

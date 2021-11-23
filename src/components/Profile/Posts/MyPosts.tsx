@@ -1,8 +1,14 @@
 import React from "react";
 import styles from "./MyPosts.module.css"
-import {Post} from "./Post/Post";
+import {Post, postType} from "./Post/Post";
 
 export const MyPosts = () => {
+    const postsData: Array<postType> = [
+        {id: "1", text: "Smells like teen spirit", likesCount: 142},
+        {id: "2", text: "Who sold the world", likesCount: 97},
+        {id: "3", text: "Do you like drugs", likesCount: 78},
+        {id: "4", text: "Nirvana", likesCount: 231},
+    ];
     return (
         <div>
             <h3>My Posts</h3>
@@ -16,9 +22,9 @@ export const MyPosts = () => {
                 </div>
             </div>
             <div className={styles.posts}>
-                <Post text="Smells like teen spirit" likesCount={14}/>
-                <Post text="Who did sell the world?" likesCount={21}/>
-                <Post text="Nirvana" likesCount={1237}/>
+                {postsData.map(post =>
+                    <Post id={post.id} text={post.text} likesCount={post.likesCount}/>
+                )}
             </div>
         </div>
     )
