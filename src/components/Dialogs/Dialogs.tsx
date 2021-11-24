@@ -1,8 +1,9 @@
 import React from "react";
 import styles from "./Dialogs.module.css";
-import {Message, messageType} from "./Message/Message";
+import {messageType} from "./Message/Message";
 import {DialogItem} from "./DialogItem/DialogItem";
 import {Route, Routes} from "react-router-dom";
+import {Dialog} from "./Dialog/Dialog";
 
 type dialogDataType = {
     id: string,
@@ -11,21 +12,7 @@ type dialogDataType = {
 type messagesDataType = {
     [key: string]: Array<messageType>
 }
-type dialogPropsType = {
-    messageData: Array<messageType>
-}
-export const Dialog = (props: dialogPropsType) => {
-    return (
-        <div>
-            {props.messageData.map(mes =>
-                <Message avatar={mes.avatar}
-                         name={mes.name}
-                         message={mes.message}
-                         time={mes.time}/>)
-            }
-        </div>
-    )
-}
+
 export const Dialogs = () => {
     const avatars = {
         Artem: 'https://sun9-74.userapi.com/impf/c845420/v845420354/20540c/m5j3UygwOrc.jpg?size=607x1036&quality=96&sign=02cc4c35223f11c3e474404204b87077&type=album',
@@ -37,7 +24,7 @@ export const Dialogs = () => {
         {id: "1", name: "Artem"},
         {id: "2", name: "Kurt"},
         {id: "3", name: "Alesya"},
-    ]
+    ];
     const messageData: messagesDataType = {
         "1": [
             {
@@ -99,24 +86,27 @@ export const Dialogs = () => {
                 time: '23:54',
             },
         ]
-    }
+    };
+    const dialogItems = dialogsData.map(dialog =>
+        <DialogItem id={dialog.id}
+                    name={dialog.name}
+                    key={dialog.id}
+        />);
+    const dialogs = dialogsData.map(dialog =>
+        <Route path={`/${dialog.id}`} element={
+            <Dialog key={dialog.id}
+                    messageData={messageData[dialog.id]}/>
+        }/>
+    );
+
     return (
         <div className={styles.dialogs}>
             <div className={styles.chats}>
-                {dialogsData.map(dialog =>
-                    <DialogItem id={dialog.id}
-                                name={dialog.name}
-                                key={dialog.id}
-                    />)}
+                {dialogItems}
             </div>
             <div className={styles.conversation}>
                 <Routes>
-                    {dialogsData.map(dialog =>
-                        <Route path={`/${dialog.id}`} element={
-                            <Dialog key={dialog.id}
-                                    messageData={messageData[dialog.id]}/>
-                        }/>
-                    )}
+                    {dialogs}
                 </Routes>
             </div>
         </div>

@@ -9,6 +9,9 @@ export const MyPosts = () => {
         {id: "3", text: "Do you like drugs", likesCount: 78},
         {id: "4", text: "Nirvana", likesCount: 231},
     ];
+    const postElements = postsData.map(post =>
+        <Post id={post.id} text={post.text} likesCount={post.likesCount}/>
+    );
     return (
         <div>
             <h3>My Posts</h3>
@@ -22,9 +25,7 @@ export const MyPosts = () => {
                 </div>
             </div>
             <div className={styles.posts}>
-                {postsData.map(post =>
-                    <Post id={post.id} text={post.text} likesCount={post.likesCount}/>
-                )}
+                {postElements}
             </div>
         </div>
     )
