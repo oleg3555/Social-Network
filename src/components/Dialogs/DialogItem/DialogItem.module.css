@@ -1,9 +1,19 @@
 .item a{
-    margin: 5px;
+    margin: 15px;
     color: #eeeaea;
     font-weight: bold;
     text-decoration: none;
+    display: flex;
+    align-items: center;
 }
 .item a.active{
     color: darkgoldenrod;
+}
+.item img{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+}
+.name{
+    margin-left: 5px;
 }

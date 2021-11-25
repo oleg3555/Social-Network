@@ -1,17 +1,15 @@
-import {Message, messageType} from "../Message/Message";
+import {Message} from "../Message/Message";
 import React from "react";
+import {messageType} from "../../../redux/state";
 
-type dialogPropsType = {
+type DialogPropsType = {
     messageData: Array<messageType>
 }
-export const Dialog = (props: dialogPropsType) => {
+export const Dialog: React.FC<DialogPropsType> = ({messageData}) => {
     return (
         <div>
-            {props.messageData.map(mes =>
-                <Message avatar={mes.avatar}
-                         name={mes.name}
-                         message={mes.message}
-                         time={mes.time}/>)
+            {messageData.map(mes =>
+                <Message key={mes.id} message={mes}/>)
             }
         </div>
     )
