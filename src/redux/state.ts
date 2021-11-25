@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "../render";
+
 const avatars = {
     Artem: 'https://sun9-74.userapi.com/impf/c845420/v845420354/20540c/m5j3UygwOrc.jpg?size=607x1036&quality=96&sign=02cc4c35223f11c3e474404204b87077&type=album',
     Oleg: 'https://sun9-73.userapi.com/impf/c852036/v852036917/7aea3/sY5TQmD4Af4.jpg?size=1280x960&quality=96&sign=b81435282a1e1e332d82be9914ec84c6&type=album',
@@ -124,4 +126,25 @@ export const state: stateType = {
             ]
         }
     }
+}
+
+export const addPost = (text: string) => {
+    const newId: number = state.profilePage.postsData.length + 1;
+    const newPost: postType = {id: String(newId), text, likesCount: 0};
+    state.profilePage.postsData.unshift(newPost);
+    rerenderEntireTree(state);
+}
+
+export const addMessage = (id: string, text: string) => {
+    const currentTime: string = new Date().toLocaleTimeString().substr(0, 5);
+    const newId: number = state.dialogsPage.messagesData[id].length + 1;
+    const newMessage: messageType = {
+        id: String(newId),
+        name: "Oleg",
+        avatar: avatars.Oleg,
+        text: text,
+        time: currentTime
+    };
+    state.dialogsPage.messagesData[id].push(newMessage);
+    rerenderEntireTree(state);
 }
